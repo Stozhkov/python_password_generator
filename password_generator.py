@@ -2,8 +2,12 @@ import sys
 import random
 
 
-def get_symbol():
+def get_lower_symbol():
     return random.choice("wertyupasdfghkzxcvbnm")
+
+
+def get_upper_symbol():
+    return get_lower_symbol().upper()
 
 
 def get_number():
@@ -11,7 +15,7 @@ def get_number():
 
 
 amount = int(input("Please input the amount of passwords: "))
-print("Mask may contents symbols: c - character, n - number")
+print("Mask may contents symbols: c - lower character, C - upper character, n - number")
 mask = input("Please input the mask for passwords: ")
 
 print("Start list of passwords")
@@ -22,7 +26,9 @@ while amount > 0:
         if ch == 'n':
             result += get_number()
         elif ch == 'c':
-            result += get_symbol()
+            result += get_lower_symbol()
+        elif ch == 'C':
+            result += get_upper_symbol()
         else:
             print("Error in mask")
             sys.exit()
