@@ -1,5 +1,14 @@
 import sys
 import random
+import argparse
+
+
+def create_parser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-m', '--mask')
+    parser.add_argument('-c', '--count', type=int, default=1)
+
+    return parser
 
 
 def get_lower_symbol():
@@ -14,13 +23,13 @@ def get_number():
     return random.choice("123456789")
 
 
-amount = int(input("Please input the amount of passwords: "))
-print("Mask may contents symbols: c - lower character, C - upper character, n - number")
-mask = input("Please input the mask for passwords: ")
+parser = create_parser()
+namespace = parser.parse_args(sys.argv[1:])
 
-print("Start list of passwords")
+count = namespace.count
+mask = namespace.mask
 
-while amount > 0:
+while count > 0:
     result = ''
     for ch in mask:
         if ch == 'n':
@@ -34,7 +43,4 @@ while amount > 0:
             sys.exit()
 
     print(result)
-    amount -= 1
-
-print("End list of passwords")
-
+    count -= 1
