@@ -50,6 +50,8 @@ while count > 0:
             result += get_upper_symbol()
         elif ch == 's':
             result += get_special_symbol()
+        elif ch == 'r':
+            result += random.choice(get_special_symbol() + get_upper_symbol() + get_lower_symbol() + get_number())
         else:
             print("Error in mask")
             sys.exit()
