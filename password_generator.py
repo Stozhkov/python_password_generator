@@ -9,7 +9,7 @@ def create_parser():
         description='''This is very nice program which help to create passwords by the mask.''',
         epilog='''(C) February 2017. The author of the program, does not bear any responsibility for that.'''
     )
-    parser.add_argument('-m', '--mask',
+    parser.add_argument('-m', '--mask', default='rrrrrrr',
                         help='''Password mask: C - upper case symbol, c - lower case symbol, n - numeric symbol,
                         s - special symbol, r - random symbol''')
     parser.add_argument('-c', '--count', type=int, default=1)
